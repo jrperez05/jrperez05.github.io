@@ -65,9 +65,6 @@
 
   .about-row {
     grid-template-columns: 1fr;
-  }
-
-  .about-row {
     row-gap: 50px;
     margin-bottom: 50px;
   }
@@ -131,6 +128,28 @@
     font-size: 11px;
     padding: 0 20px;
   }
+
+  .hero-content > div:last-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .hero-content .btn {
+    flex: 0 1 160px;
+    min-width: 160px;
+    text-align: center;
+    margin: 0;
+  }
+
+  .about-download-btn {
+    text-align: center;
+  }
+
   .skill {
     max-width: 460px;
     margin-inline: auto;

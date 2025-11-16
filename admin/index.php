@@ -2,7 +2,7 @@
 require_once '../config/auth.php';
 
 if (!isLoggedIn()) {
-    header('Location: login.php');
+    header('Location: /admin/login.php');
     exit;
 }
 ?>
@@ -73,6 +73,14 @@ if (!isLoggedIn()) {
                                 <div style="margin-top: 5px;">
                                     <input type="file" id="profile-hero-upload" accept="image/*" style="display: none;" onchange="handleImageUpload('profile-hero')">
                                     <button type="button" class="btn-upload" onclick="document.getElementById('profile-hero-upload').click()">Upload Image</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>CV File</label>
+                                <input type="text" id="profile-cv" placeholder="CV File Path (PDF)">
+                                <div style="margin-top: 5px;">
+                                    <input type="file" id="profile-cv-upload" accept=".pdf,application/pdf" style="display: none;" onchange="handleCvUpload('profile-cv')">
+                                    <button type="button" class="btn-upload" onclick="document.getElementById('profile-cv-upload').click()">Upload CV</button>
                                 </div>
                             </div>
                             <div class="form-actions">
@@ -247,6 +255,7 @@ if (!isLoggedIn()) {
                                 <th>Title</th>
                                 <th>Category</th>
                                 <th>Image</th>
+                                <th>URL</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>

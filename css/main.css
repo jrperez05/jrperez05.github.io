@@ -19,7 +19,6 @@
   --color-dots: #1a1a1a;
 }
 
-/* Dark mode variables */
 [data-theme="dark"] {
   --primary-bg-color: #0c1618;
   --primary-accent: #f7fbfd;
@@ -38,7 +37,6 @@
   --color-dots: #f7fbfd;
 }
 
-/* Common styles */
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -55,7 +53,6 @@ body {
 .container {
   padding: 0 32px;
   max-width: 1200px;
-  /* max-width: clamp(54.5rem, 38.125rem + 81.88vw, 120rem); */
   margin: 0 auto;
 }
 
@@ -85,7 +82,6 @@ body {
   text-align: center;
   white-space: nowrap;
   cursor: pointer;
-  transition: all 0.3s;
   background-color: var(--primary-accent);
   border: 2px solid var(--primary-accent);
   transition: all 0.3s ease-in;
@@ -151,16 +147,15 @@ h5 {
   color: var(--white-color);
 }
 
-/* Header */
 .header {
-  z-index: 100;
-  background-color: transparent;
-  height: 90px;
-  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
+  width: 100%;
+  height: 90px;
+  z-index: 100;
+  background-color: transparent;
 }
 
 .header-nav {
@@ -218,7 +213,6 @@ h5 {
   text-underline-offset: 7px;
 }
 
-/* Hero section */
 .hero {
   position: relative;
   padding-top: 180px;
@@ -266,7 +260,6 @@ h5 {
 
 .hero-img img {
   display: block;
-  position: relative;
 }
 
 .about-social-list {
@@ -308,7 +301,6 @@ h5 {
     brightness(100%) contrast(100%);
 }
 
-/* About section */
 .about {
   padding: 7rem 0;
 }
@@ -341,7 +333,6 @@ h5 {
   display: inline-block;
   font-size: 16px;
   font-weight: 400;
-  /* text-transform: uppercase; */
   letter-spacing: 0px;
 }
 
@@ -360,8 +351,8 @@ h5 {
 .skill-bar__fill {
   background-color: var(--secondary-accent);
   height: 4px;
-  width: 0; /* Initial width is 0 */
-  transition: width 1.5s ease-in-out; /* Smooth transition for the fill */
+  width: 0;
+  transition: width 1.5s ease-in-out;
 }
 
 .about-download-btn {
@@ -407,7 +398,6 @@ h5 {
   text-align: center;
 }
 
-/* Timeline */
 .timeline {
   padding: 7rem 0;
   background-color: var(--white-color);
@@ -497,7 +487,6 @@ h5 {
   color: var(--supportive-text-color);
 }
 
-/* Achievements */
 .achievements {
   padding: 7rem 0;
   background-color: var(--primary-bg-color);
@@ -545,6 +534,10 @@ h5 {
   border-radius: 50%;
 }
 
+[data-theme="dark"] .achievement-icon img {
+  filter: brightness(2.5) contrast(1.5);
+}
+
 .achievement-title {
   font-size: 20px;
   font-weight: 600;
@@ -567,7 +560,6 @@ h5 {
   color: var(--supportive-text-color);
 }
 
-/* Works */
 .projects {
   padding: 7rem 0;
   background-color: var(--white-color);
@@ -629,13 +621,8 @@ h5 {
   overflow: hidden;
 }
 
-.project-mask p {
-  text-transform: uppercase;
-  font-size: 11px;
-  letter-spacing: 1.5px;
-  font-weight: 400;
-  margin-top: 0;
-  text-align: left;
+[data-theme="dark"] .project-mask {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.4);
 }
 
 .project-mask .project-caption {
@@ -649,6 +636,12 @@ h5 {
   opacity: 0;
 }
 
+.project-mask h5,
+.project-mask p,
+.project-mask .white {
+  color: #ffffff !important;
+}
+
 .project-mask p {
   text-transform: uppercase;
   font-size: 11px;
@@ -658,7 +651,6 @@ h5 {
   text-align: left;
 }
 
-/* Contact */
 .contact {
   padding: 7rem 0;
   text-align: center;
@@ -704,7 +696,6 @@ h5 {
   margin-top: 20px;
 }
 
-/* Footer */
 .footer {
   background-color: var(--primary-accent);
   color: var(--gray-color-3);
@@ -754,26 +745,21 @@ h5 {
   visibility: visible;
 }
 
-/* Dark mode toggle button */
 .darkModeToggle {
-  z-index: 600;
   position: fixed;
-  width: 40px;
-  height: 40px;
-  background-color: var(--gray-color);
-  top: auto;
-  left: auto;
   right: 30px;
   bottom: 80px;
-  cursor: pointer;
-  border: none;
-  border-radius: 2px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: var(--gray-color);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  z-index: 600;
   transition: all 0.3s ease;
-  opacity: 1;
-  visibility: visible;
 }
 
 .darkModeToggle:hover {
@@ -813,21 +799,18 @@ h5 {
   stroke: var(--white-color);
 }
 
-/* "go to top" button */
 .goToTop {
-  z-index: 599;
   position: fixed;
+  right: 30px;
+  bottom: 30px;
   width: 40px;
   height: 40px;
   background-color: var(--gray-color);
-  top: auto;
-  left: auto;
-  right: 30px;
-  bottom: 30px;
+  border-radius: 2px;
   cursor: pointer;
   opacity: 0;
   visibility: hidden;
-  border-radius: 2px;
+  z-index: 599;
   transition: opacity 350ms, visibility 350ms;
 }
 
@@ -862,14 +845,10 @@ h5 {
 }
 
 .goToTop.reveal {
-  display: block;
-  cursor: pointer;
   opacity: 1;
   visibility: visible;
-  transition: all 0.3s;
 }
 
-/* Preloader with jumping dots */
 #preloader {
   position: fixed;
   display: flex;

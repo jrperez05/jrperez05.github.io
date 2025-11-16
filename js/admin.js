@@ -1,5 +1,3 @@
-let currentSection = 'profile';
-let editingItem = null;
 let editingType = null;
 
 const API_BASE = '../api/';
@@ -39,7 +37,6 @@ function showSection(section) {
     document.querySelectorAll('.admin-sidebar-nav a').forEach(a => a.classList.remove('active'));
     document.getElementById(section).classList.add('active');
     event.target.classList.add('active');
-    currentSection = section;
     loadSectionData(section);
     
     if (window.innerWidth <= 768) {
@@ -85,6 +82,7 @@ async function loadProfile() {
         document.getElementById('profile-subtitle').value = profile.subtitle || '';
         document.getElementById('profile-about').value = profile.about_text || '';
         document.getElementById('profile-hero').value = profile.hero_image || '';
+        document.getElementById('profile-cv').value = profile.cv_file || '';
     }
 }
 
@@ -96,7 +94,8 @@ async function saveProfile(e) {
         name: document.getElementById('profile-name').value,
         subtitle: document.getElementById('profile-subtitle').value,
         about_text: document.getElementById('profile-about').value,
-        hero_image: document.getElementById('profile-hero').value
+        hero_image: document.getElementById('profile-hero').value,
+        cv_file: document.getElementById('profile-cv').value
     };
     await putData('profile/update.php', data);
     alert('Profile saved successfully!');
@@ -217,17 +216,35 @@ async function loadAchievements() {
     }).join('');
 }
 
+function formatUrl(url) {
+    if (!url || url === '#!') return '#!';
+    if (url.startsWith('http://') || url.startsWith('https://')) {
+        return url;
+    }
+    if (url.startsWith('//')) {
+        return 'https:' + url;
+    }
+    if (url.startsWith('/')) {
+        return url;
+    }
+    return 'https://' + url;
+}
+
 async function loadProjects() {
     const projects = await fetchData('projects/get.php');
     const tbody = document.getElementById('projects-table');
     tbody.innerHTML = projects.map(project => {
         const imagePath = (project.image || '').replace(/'/g, "\\'");
+        const url = formatUrl(project.url);
         return `
         <tr>
             <td>${project.title}</td>
             <td>${project.category}</td>
             <td>
                 ${project.image ? `<button class="btn-view" onclick="previewImage('${imagePath}')" title="View Image"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></button>` : '-'}
+            </td>
+            <td>
+                ${url && url !== '#!' ? `<a href="${url}" target="_blank" style="color: var(--primary-accent); text-decoration: underline;">View Project</a>` : '-'}
             </td>
             <td>
                 <button class="btn-edit" onclick="editItem('projects', ${project.id})">Edit</button>
@@ -274,7 +291,6 @@ function createFormField(label, id, type = 'text', value = '', required = false,
 }
 
 function showAddForm(type) {
-    editingItem = null;
     editingType = type;
     const title = document.getElementById('modal-title');
     const content = document.getElementById('modal-content');
@@ -352,7 +368,6 @@ function getEndpointPath(type, action) {
 }
 
 async function editItem(type, id) {
-    editingItem = id;
     editingType = type;
     const endpoint = getEndpointPath(type, 'get');
     const items = await fetchData(endpoint);
@@ -481,6 +496,8 @@ async function saveItem(e) {
     }
     
     const endpoint = getEndpointPath(editingType, 'crud');
+    const currentType = editingType;
+    
     if (formData.id) {
         await putData(endpoint, formData);
     } else {
@@ -488,7 +505,7 @@ async function saveItem(e) {
     }
     
     closeModal();
-    loadSectionData(editingType);
+    await loadSectionData(currentType);
     alert('Saved successfully!');
 }
 
@@ -497,20 +514,20 @@ async function deleteItem(type, id) {
     
     const endpoint = getEndpointPath(type, 'crud');
     await deleteData(endpoint, id);
-    loadSectionData(type);
+    await loadSectionData(type);
     alert('Deleted successfully!');
 }
 
 function closeModal() {
     document.getElementById('modal-overlay').classList.remove('active');
-    editingItem = null;
     editingType = null;
-    document.getElementById('modal-form').reset();
+    const modalForm = document.getElementById('modal-form');
+    if (modalForm) modalForm.reset();
 }
 
 async function logout() {
     await fetch(API_BASE + 'auth/logout.php');
-    window.location.href = 'login.php';
+    window.location.href = '/admin/login.php';
 }
 
 function toggleSidebar() {
@@ -574,6 +591,34 @@ async function handleImageUpload(inputId) {
         if (result.success) {
             pathInput.value = result.path;
             alert('Image uploaded successfully!');
+        } else {
+            alert('Upload failed: ' + (result.error || 'Unknown error'));
+        }
+    } catch (error) {
+        alert('Upload failed: ' + error.message);
+    }
+}
+
+async function handleCvUpload(inputId) {
+    const fileInput = document.getElementById(inputId + '-upload');
+    const pathInput = document.getElementById(inputId);
+    
+    if (!fileInput.files || !fileInput.files[0]) return;
+    
+    const formData = new FormData();
+    formData.append('file', fileInput.files[0]);
+    
+    try {
+        const response = await fetch(API_BASE + 'upload/cv.php', {
+            method: 'POST',
+            body: formData
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            pathInput.value = result.path;
+            alert('CV uploaded successfully!');
         } else {
             alert('Upload failed: ' + (result.error || 'Unknown error'));
         }

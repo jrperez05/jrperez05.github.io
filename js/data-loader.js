@@ -33,6 +33,12 @@ async function loadProfile() {
         if (aboutText && profile.about_text) {
             aboutText.innerHTML = profile.about_text.replace(/\n/g, '<br>');
         }
+        
+        const downloadBtn = document.querySelector('.about-download-btn a');
+        if (downloadBtn && profile.cv_file) {
+            downloadBtn.href = profile.cv_file;
+            downloadBtn.target = '_blank';
+        }
     }
 }
 
@@ -161,14 +167,30 @@ async function loadAchievements() {
     }
 }
 
+function formatUrl(url) {
+    if (!url || url === '#!') return '#!';
+    if (url.startsWith('http://') || url.startsWith('https://')) {
+        return url;
+    }
+    if (url.startsWith('//')) {
+        return 'https:' + url;
+    }
+    if (url.startsWith('/')) {
+        return url;
+    }
+    return 'https://' + url;
+}
+
 async function loadProjects() {
     const projects = await fetchData('projects/get.php');
     if (projects && projects.length > 0) {
         const projectsContainer = document.querySelector('.projects-row');
         if (projectsContainer) {
-            projectsContainer.innerHTML = projects.map((project, index) => `
+            projectsContainer.innerHTML = projects.map((project, index) => {
+                const projectUrl = formatUrl(project.url);
+                return `
                 <div class="project-box" data-aos="fade-zoom-in" data-aos-easing="ease-in-out" data-aos-delay="${index * 300}" data-aos-duration="1000">
-                    <a href="${project.url || '#!'}">
+                    <a href="${projectUrl}">
                         <img class="project-img" src="${project.image}" alt="${project.title}" />
                         <div class="project-mask">
                             <div class="project-caption">
@@ -178,7 +200,8 @@ async function loadProjects() {
                         </div>
                     </a>
                 </div>
-            `).join('');
+            `;
+            }).join('');
         }
     }
 }

@@ -1,6 +1,8 @@
 const form = () => {
-  const contactForm = document.querySelector(".contactForm"),
-    responseMessage = document.querySelector(".response");
+  const contactForm = document.querySelector(".contactForm");
+  const responseMessage = document.querySelector(".response");
+
+  if (!contactForm || !responseMessage) return;
 
   contactForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -9,30 +11,26 @@ const form = () => {
     responseMessage.classList.add("open");
     responseMessage.textContent = "Please wait...";
 
-    async function getData() {
-      try {
-        const response = await fetch("mail.php", {
-          method: "POST",
-          body: formData,
-        });
-        if (!response.ok) {
-          responseMessage.textContent = result;
-        }
-
-        const result = await response.text();
-        responseMessage.textContent = result;
-      } catch (error) {
-        console.error(error.message);
-      }
+    try {
+      const response = await fetch("mail.php", {
+        method: "POST",
+        body: formData,
+      });
+      
+      const result = await response.text();
+      responseMessage.textContent = result;
+      
+      setTimeout(() => {
+        responseMessage.classList.remove("open");
+      }, 3000);
+      
+      form.reset();
+    } catch (error) {
+      responseMessage.textContent = "Error: " + error.message;
+      setTimeout(() => {
+        responseMessage.classList.remove("open");
+      }, 3000);
     }
-
-    getData()
-      .then(
-        setTimeout(() => {
-          responseMessage.classList.remove("open");
-        }, 3000)
-      )
-      .finally(form.reset());
   });
 };
 export default form;
