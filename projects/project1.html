@@ -3,47 +3,244 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project 1 — Juan Perez</title>
+  <title>Fluid Mechanics — Juan Perez</title>
+
+  <!-- Reuse your existing site styles -->
   <link rel="stylesheet" href="../css/main.css" />
   <link rel="stylesheet" href="../css/media.css" />
+
+  <!-- Small page-specific styles -->
+  <style>
+    /* Page layout */
+    .project-page {
+      padding: 6rem 0 5rem;
+    }
+
+    .project-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .project-kicker {
+      color: var(--supportive-text-color);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-title {
+      font-size: clamp(2rem, 1.6rem + 2vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .project-subtitle {
+      color: var(--supportive-text-color);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin: 0 auto 2rem;
+      max-width: 780px;
+    }
+
+    /* Link box (for reports / github / slides) */
+    .project-links {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      max-width: 520px;
+      margin: 0 auto 3rem;
+      padding: 18px 18px;
+      border: 1px solid rgba(0,0,0,0.12);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.7);
+    }
+
+    .project-links h3 {
+      font-size: 1rem;
+      margin: 0 0 6px;
+    }
+
+    .project-links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border: 1px solid rgba(0,0,0,0.10);
+      border-radius: 10px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+      background: #fff;
+    }
+
+    .project-links a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .link-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      gap: 2px;
+    }
+
+    .link-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .link-meta {
+      font-size: 0.85rem;
+      color: var(--supportive-text-color);
+    }
+
+    .link-arrow {
+      font-size: 1.1rem;
+      opacity: 0.7;
+    }
+
+    /* Images / figures */
+    .project-gallery {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    figure.project-figure {
+      margin: 0;
+      text-align: center;
+    }
+
+    .project-figure img {
+      width: 100%;
+      max-width: 980px;
+      height: auto;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,0.10);
+      background: #fff;
+    }
+
+    .project-figure figcaption {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: var(--supportive-text-color);
+      line-height: 1.5;
+    }
+
+    /* Small divider spacing */
+    .project-divider {
+      height: 1px;
+      background: rgba(0,0,0,0.08);
+      margin: 3rem auto;
+      max-width: 980px;
+    }
+
+    /* Make header nav look consistent if your main.css expects these classes */
+    .nav-list { list-style: none; padding-left: 0; margin: 0; display: flex; gap: 18px; }
+    .nav-link { text-decoration: none; color: inherit; }
+    .nav-link:hover { opacity: 0.8; }
+  </style>
 </head>
+
 <body>
-  <header class="header">
+  <!-- Header (keeps your J.Perez + Back to Works) -->
+  <header id="header" class="header">
     <div class="container container-lg">
       <div class="header-nav">
         <a href="../index.html#home" class="logo">J.Perez</a>
         <nav class="nav">
           <ul class="nav-list">
-            <li class="nav-item"><a class="nav-link" href="../index.html#projects">Back to Works</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html#projects">← Back to Works</a>
+            </li>
           </ul>
         </nav>
       </div>
     </div>
   </header>
 
-  <section class="about" style="padding-top: 5rem;">
+  <!-- Main content -->
+  <main class="project-page">
     <div class="container">
-      <h1 class="title">Project Title</h1>
-      <p class="about-descr">
-        2–3 sentence summary of what you built and why it matters.
-      </p>
+      <div class="project-wrap">
+        <div class="project-kicker">Course</div>
+        <h1 class="project-title">ENGN 0810: Fluid Mechanics</h1>
 
-      <h3>What I did</h3>
-      <ul>
-        <li>Designed …</li>
-        <li>Built …</li>
-        <li>Tested …</li>
-      </ul>
+        <!-- Centered text area like your screenshot -->
+        <p class="project-subtitle">
+          In my Fluid Mechanics course at Brown, I learned about key ideas in fluid mechanics, 
+          including viscosity, vortex rings, and drag. Throughout the course we performed hands-on
+          experiments and procedures, summarized in the following reports.   
+        </p>
 
-      <h3>Tools</h3>
-      <p>SolidWorks, MATLAB, …</p>
+        <!-- Link box for reports / slides / github -->
+        <div class="project-links" aria-label="Project links">
+          <h3>Reports</h3>
 
-      <h3>Links</h3>
-      <p>
-        <a class="btn" href="https://github.com/jrperez05/your-project" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
-      </p>
+          <!-- Put your PDFs inside: /assets/projects/ and link like below -->
+          <a href="../assets/projects/engine-design-final-report.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="link-left">
+              <span class="link-title">Viscous Gravity Current Report (PDF)</span>
+              <span class="link-meta">Lab 1</span>
+            </span>
+            <span class="link-arrow">↗</span>
+          </a>
+
+          <a href="../assets/projects/engine-design-slides.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="link-left">
+              <span class="link-title">Vortex Rings and Velocimetry (PDF)</span>
+              <span class="link-meta">Lab 2</span>
+            </span>
+            <span class="link-arrow">↗</span>
+          </a>
+
+          <!-- Optional: link to GitHub -->
+          <a href="https://github.com/jrperez05" target="_blank" rel="noopener noreferrer">
+            <span class="link-left">
+              <span class="link-title">Ballistic Trajectory with Drag (PDF)</span>
+              <span class="link-meta">Lab 3</span>
+            </span>
+            <span class="link-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-divider"></div>
+
+      <!-- Centered images / figures area -->
+      <div class="project-gallery">
+        <!-- Example figure 1 -->
+        <figure class="project-figure">
+          <img src="../img/projects/project1/plot-afr-efficiency.png" alt="Thermodynamic efficiency vs compression ratio for various AFR ratios" />
+          <figcaption>
+            Thermodynamic efficiencies for various AFR ratios vs compression ratio. (Replace with your actual plot image.)
+          </figcaption>
+        </figure>
+
+        <!-- Example figure 2 -->
+        <figure class="project-figure">
+          <img src="../img/projects/project1/test-setup.jpg" alt="Experimental or modeling setup" />
+          <figcaption>
+            Test / modeling setup. Add 1–2 sentences explaining what the viewer is looking at and why it matters.
+          </figcaption>
+        </figure>
+
+        <!-- Example figure 3 -->
+        <figure class="project-figure">
+          <img src="../img/projects/project1/results-table.png" alt="Results summary" />
+          <figcaption>
+            Results summary (swap this image for your own tables/photos/screenshots).
+          </figcaption>
+        </figure>
+      </div>
     </div>
-  </section>
+  </main>
 </body>
 </html>
-
