@@ -679,7 +679,7 @@ h5 {
 
 /* Reports page */
 .reports-page{
-  padding-top: 300px; /* room for header */
+  padding-top: 200px; /* room for header */
   padding-bottom: 12rem;
   background: var(--primary-bg-color);
 }
