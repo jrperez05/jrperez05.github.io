@@ -679,8 +679,8 @@ h5 {
 
 /* Reports page */
 .reports-page{
-  padding-top: 200px; /* room for header */
-  padding-bottom: 12rem;
+  padding-top: 150px; /* room for header */
+  padding-bottom: 14rem;
   background: var(--primary-bg-color);
 }
 
