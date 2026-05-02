@@ -679,8 +679,8 @@ h5 {
 
 /* Reports page */
 .reports-page{
-  padding-top: 180px; /* room for header */
-  padding-bottom: 10rem;
+  padding-top: 300px; /* room for header */
+  padding-bottom: 12rem;
   background: var(--primary-bg-color);
 }
 
@@ -728,7 +728,7 @@ h5 {
 }
 
 .reports-subtitle{
-  max-width: 700px;
+  max-width: 600px;
   margin: 0 auto;
   color: rgba(12, 22, 24, 0.65);
   font-size: 18px;
