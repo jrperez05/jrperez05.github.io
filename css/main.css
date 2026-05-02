@@ -684,12 +684,24 @@ h5 {
   background: var(--primary-bg-color);
 }
 
+/* 3 cards per row */
 .reports-grid{
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-  max-width: 900px;
-  margin: 0 auto;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 2.5rem auto 0;
+}
+
+/* Responsive */
+@media (max-width: 1200px){
+  .reports-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .report-course{ white-space: normal; text-align: right; }
+}
+
+@media (max-width: 750px){
+  .reports-grid{ grid-template-columns: 1fr; }
 }
 
 .report-card{
@@ -725,8 +737,4 @@ h5 {
 .report-arrow{
   font-size: 22px;
   opacity: 0.7;
-}
-
-@media (max-width: 800px){
-  .reports-grid{ grid-template-columns: 1fr; }
 }
