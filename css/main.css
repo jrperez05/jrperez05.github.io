@@ -704,37 +704,116 @@ h5 {
   .reports-grid{ grid-template-columns: 1fr; }
 }
 
-.report-card{
+/* Reports hero */
+.reports-hero{
+  text-align: center;
+  max-width: 920px;
+  margin: 0 auto 3.5rem;
+}
+
+.reports-eyebrow{
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--secondary-accent);
+  margin-bottom: 14px;
+}
+
+.reports-title{
+  font-size: clamp(56px, 6vw, 92px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0 0 18px;
+}
+
+.reports-subtitle{
+  max-width: 760px;
+  margin: 0 auto;
+  color: rgba(12, 22, 24, 0.65);
+  font-size: 22px;
+  line-height: 1.7;
+}
+
+/* Archive card style */
+.report-archive-card{
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(0,0,0,0.10);
+  border-radius: 22px;
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  min-height: 460px;
+}
+
+.report-top{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding: 18px 18px;
-  border: 1px solid rgba(0,0,0,0.10);
-  border-radius: 16px;
-  background: rgba(255,255,255,0.85);
-  text-decoration: none;
-  color: inherit;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
-.report-card:hover{
+.report-pill{
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.06);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.report-course{
+  font-size: 14px;
+  color: var(--gray-text-color);
+  white-space: nowrap;
+}
+
+.report-name{
+  font-size: 28px;
+  line-height: 1.15;
+  margin: 0 0 18px;
+}
+
+.report-section{
+  margin-bottom: 14px;
+}
+
+.report-label{
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gray-text-color);
+  margin-bottom: 6px;
+}
+
+.report-text{
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--supportive-text-color);
+}
+
+.report-download{
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.14);
+  background: rgba(255,255,255,0.9);
+  text-decoration: none;
+  color: var(--main-text-color);
+  width: fit-content;
+}
+
+.report-download:hover{
+  background: white;
   box-shadow: 0 10px 22px rgba(0,0,0,0.08);
   transform: translateY(-1px);
   transition: all 0.12s ease;
 }
 
-.report-title{
-  font-weight: 600;
+.download-icon{
   font-size: 18px;
-  margin-bottom: 6px;
-}
-
-.report-meta{
-  font-size: 14px;
-  color: var(--supportive-text-color);
-}
-
-.report-arrow{
-  font-size: 22px;
-  opacity: 0.7;
 }
