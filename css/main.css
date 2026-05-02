@@ -740,10 +740,10 @@ h5 {
   background: rgba(255,255,255,0.85);
   border: 1px solid rgba(0,0,0,0.10);
   border-radius: 22px;
-  padding: 26px 24px;
+  padding: 26px 26px;
   display: flex;
   flex-direction: column;
-  min-height: 460px;
+  min-height: 440px;
 }
 
 .report-top{
@@ -773,6 +773,7 @@ h5 {
   font-size: 24px;
   line-height: 1.15;
   margin: 0 0 18px;
+  font-weight: 700;
 }
 
 .report-section{
@@ -788,7 +789,7 @@ h5 {
 }
 
 .report-text{
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.6;
   color: var(--supportive-text-color);
 }
