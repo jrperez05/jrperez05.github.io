@@ -691,7 +691,7 @@ h5 {
   gap: 22px;
   align-items: stretch;
   max-width: 1200px;
-  margin: 2.5rem auto 0;
+  margin: 2rem auto 0;
 }
 
 /* Responsive */
@@ -708,7 +708,7 @@ h5 {
 .reports-hero{
   text-align: center;
   max-width: 920px;
-  margin: 0 auto 3.5rem;
+  margin: 0 auto 4rem;
 }
 
 .reports-eyebrow{
