@@ -292,41 +292,6 @@ h5 {
   margin-bottom: 10px;
 }
 
-.skill {
-  position: relative;
-  display: block;
-  width: 100%;
-  margin-bottom: 30px;
-}
-
-.skill-title,
-.skill-percent {
-  display: inline-block;
-  font-size: 16px;
-  font-weight: 400;
-  /* text-transform: uppercase; */
-  letter-spacing: 0px;
-}
-
-.skill-percent {
-  float: right;
-}
-.skill-bar__progress {
-  background-color: var(--gray-color);
-  border-radius: 5px;
-  height: 4px;
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.skill-bar__fill {
-  background-color: var(--secondary-accent);
-  height: 4px;
-  width: 0; /* Initial width is 0 */
-  transition: width 1.5s ease-in-out; /* Smooth transition for the fill */
-}
-
 .about-download-btn {
   margin-top: 40px;
 }
@@ -334,40 +299,6 @@ h5 {
 .about-content{
   max-width: 720px;   /* adjust 600–900 */
   margin: 0 auto;     /* centers the block */
-}
-
-.services-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 50px;
-  justify-content: space-between;
-}
-
-.service-card {
-  max-width: 300px;
-}
-
-.service-card-img {
-  display: block;
-  height: 50px;
-  margin: 0 auto 20px;
-  filter: invert(33%) sepia(7%) saturate(243%) hue-rotate(145deg)
-    brightness(94%) contrast(81%);
-}
-
-.service-card-title {
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
-  font-weight: 600;
-  font-size: clamp(1.125rem, 1.089rem + 0.18vw, 1.25rem);
-}
-
-.service-card p {
-  font-size: 16px;
-  line-height: 1.7;
-  text-align: center;
 }
 
 /* Works */
