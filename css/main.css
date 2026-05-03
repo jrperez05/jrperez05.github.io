@@ -320,10 +320,6 @@ h5 {
   line-height: 1.7;
 }
 
-.projects-title .title {
-  margin-bottom: 14px; /* was 54px globally */
-}
-
 .projects-row{
   margin-top: 80px;
   display: grid;
