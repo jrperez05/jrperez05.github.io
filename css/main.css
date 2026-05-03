@@ -310,6 +310,7 @@ h5 {
 .projects-subtitle{
   max-width: 700px;
   text-align: center;
+  margin: 0 auto;            
   font-size: clamp(1rem, 0.964rem + 0.18vw, 1.125rem);
   line-height: 1.7;
   font-weight: 400;
