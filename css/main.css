@@ -316,7 +316,7 @@ h5 {
 }
 
 .projects-row{
-  margin-top: 20px;
+  margin-top: 80px;
   display: grid;
   grid-template-columns: repeat(3, 380px);  /* <-- tile width */
   justify-content: center;                 /* centers the grid */
