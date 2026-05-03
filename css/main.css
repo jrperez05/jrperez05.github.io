@@ -627,12 +627,12 @@ h5 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
   align-items: stretch;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto 0;
 }
 
 /* Responsive */
-@media (max-width: 1500px){
+@media (max-width: 1200px){
   .reports-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .report-course{ white-space: normal; text-align: right; }
 }
