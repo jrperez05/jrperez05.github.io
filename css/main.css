@@ -313,11 +313,12 @@ h5 {
 }
 
 .projects-subtitle{
-  max-width: 760px;
-  margin: -28px auto 0; /* moves subtitle closer to the big title */
-  color: rgba(12, 22, 24, 0.65); /* same gray style as reports subtitle */
-  font-size: 16px;
+  max-width: 700px;
+  margin: -40px auto 0; /* moves subtitle closer to the big title */
+  font-size: clamp(1rem, 0.964rem + 0.18vw, 1.125rem);
   line-height: 1.7;
+  font-weight: 400;
+  
 }
 
 .projects-row{
