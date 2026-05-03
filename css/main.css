@@ -659,7 +659,7 @@ h5 {
 }
 
 .reports-subtitle{
-  max-width: 560px;
+  max-width: 520px;
   margin: 0 auto;
   color: rgba(12, 22, 24, 0.65);
   font-size: 16px;
@@ -704,7 +704,7 @@ h5 {
   font-size: 24px;
   line-height: 1.15;
   margin: 0 0 18px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .report-section{
