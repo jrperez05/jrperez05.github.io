@@ -676,7 +676,7 @@ h5 {
   background: rgba(255,255,255,0.85);
   border: 1px solid rgba(0,0,0,0.10);
   border-radius: 22px;
-  padding: 26px 26px;
+  padding: 30px 26px;
   display: flex;
   flex-direction: column;
   min-height: 440px;
