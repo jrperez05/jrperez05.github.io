@@ -311,6 +311,10 @@ h5 {
   text-align: center;
 }
 
+.projects-title .title {
+  margin-bottom: 14px; /* was 54px globally */
+}
+
 .projects-row{
   margin-top: 20px;
   display: grid;
